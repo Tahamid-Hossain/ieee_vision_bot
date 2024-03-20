@@ -2,16 +2,17 @@ import RPi.GPIO as GPIO
 import time
 
 
-right_motor_a = 24
-right_motor_b = 23
-right_motor_en = 25
+right_motor_a = 9
+right_motor_b = 10
+right_motor_en = 11
 
-left_motor_a = 15
-left_motor_b = 14
-left_motor_en = 4
+left_motor_a = 27
+left_motor_b = 22
+left_motor_en = 17
 
 
 GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
 
 GPIO.setup(right_motor_a , GPIO.OUT)
 GPIO.setup(right_motor_b , GPIO.OUT)
@@ -24,8 +25,8 @@ GPIO.setup(left_motor_en , GPIO.OUT)
 pwm_r = GPIO.PWM(right_motor_en , 1000 )
 pwm_l = GPIO.PWM(left_motor_en , 1000 )
 
-pwm_r.start(75)
-pwm_l.start(75)
+pwm_r.start(50)
+pwm_l.start(50)
 
 def forward(second):
     print("forward Moving ")
@@ -69,8 +70,8 @@ def exit_():
     GPIO.cleanup()
 
 def main():
-    forward(2)
-    reverse(2)
+    # forward(2)
+    # reverse(2)
     left(2)
     right(2)
     stop()
