@@ -70,8 +70,8 @@ def exit_():
     GPIO.cleanup()
 
 def main():
-    # forward(2)
-    # reverse(2)
+    forward(2)
+    reverse(2)
     left(2)
     right(2)
     stop()

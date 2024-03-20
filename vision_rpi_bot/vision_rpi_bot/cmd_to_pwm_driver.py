@@ -10,13 +10,13 @@ class VelocitySubscriber(Node):
     def __init__(self):
         super().__init__('cmd_vel_subscriber')
         self.subscription = self.create_subscription(Twist,'cmd_vel',self.cmd_to_pwm_callback,10)
-        right_motor_a = 24
-        right_motor_b = 23
-        right_motor_en = 25
+        right_motor_a = 9
+        right_motor_b = 10
+        right_motor_en = 11
 
-        left_motor_a = 15
-        left_motor_b = 14
-        left_motor_en = 4
+        left_motor_a = 27
+        left_motor_b = 22
+        left_motor_en = 17
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(right_motor_a , GPIO.OUT)
         GPIO.setup(right_motor_b , GPIO.OUT)
@@ -30,7 +30,7 @@ class VelocitySubscriber(Node):
         self.pwm_l = GPIO.PWM(left_motor_en , 1000 )
 
         self.pwm_r.start(75)
-        self.pwm_l.start(75)
+        self.pwm_l.start(75) 
         self.mr_a = right_motor_a
         self.mr_b = right_motor_b
         self.ml_a = left_motor_a
