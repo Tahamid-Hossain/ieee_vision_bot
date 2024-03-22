@@ -4,7 +4,7 @@ import os
 import cv2
 main_dir_path=os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..'))
 model_file = os.path.join(main_dir_path,'data','lite-model_ssd_mobilenet_v1_100_320_uint8_nms_1.tflite')
-input_file = os.path.join(main_dir_path,'resource','vehicle.jpg')
+input_file = os.path.join(main_dir_path,'resource','aeroplane.jpg')
 label_file = os.path.join(main_dir_path,'resource','labels.txt')
 
 ## Loading labels

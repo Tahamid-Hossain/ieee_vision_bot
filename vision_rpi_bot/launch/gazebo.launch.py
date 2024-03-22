@@ -13,7 +13,7 @@ def generate_launch_description():
     return LaunchDescription(
         [
             ExecuteProcess(
-                cmd=["gazebo","-s","libgazebo_ros_factory.so",],
+                cmd=["ign","-s","libgazebo_ros_factory.so",],
                 output="screen",
             ),
 

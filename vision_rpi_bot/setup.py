@@ -32,6 +32,7 @@ setup(
                 'line_following_sim_node = vision_rpi_bot.line_following_sim:main',
                 'line_following_real_node = vision_rpi_bot.line_following_real:main',
                 'surveillance_node = vision_rpi_bot.surveillance_bot:main',
+                'color_subscriber = vision_rpi_bot.color_subscriber:main',
                            ],
                 },
 )
