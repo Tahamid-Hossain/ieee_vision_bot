@@ -11,19 +11,20 @@ class drive_rpi(Node):
     def __init__(self):
         super().__init__('Visionbot_driver')
         self.error_value_subscriber = self.create_subscription(Int16, '/line_following_error',self.car_drive_cb, 10)
-        self.motor_obj=setup(24,23,25,15,14,4)
-        self.base_speed = 26 # duty cycle value
+        self.motor_obj=setup(9,10,11,27,22,17) # mr_a,mr_b,mr_en,ml_a,ml_b,ml_en)
+        self.base_speed = 50 # duty cycle value
         self.right_wheel_vel  = 0
         self.left_wheel_vel = 0
+        self.er_val = 40
 
     def car_drive_cb(self,error_value):
         # print("Error ->" , error_value.data)
         if(error_value.data < 0 ) : # positive case for counter clock wise rotation
-            self.right_wheel_vel  = self.base_speed - 10
-            self.left_wheel_vel = self.base_speed + 10
+            self.right_wheel_vel  = self.base_speed - self.er_val
+            self.left_wheel_vel = self.base_speed + 50
         else: # negative case for clock wise
-            self.right_wheel_vel  = self.base_speed + 10
-            self.left_wheel_vel = self.base_speed - 10
+            self.right_wheel_vel  = self.base_speed + 30
+            self.left_wheel_vel = self.base_speed - 40
 
 
         self.motor_obj.set_velcoties(self.left_wheel_vel,self.right_wheel_vel )
@@ -64,7 +65,7 @@ class setup(object):
         self.pwm_r =  GPIO.PWM(mr_en,1000)
         self.pwm_l =  GPIO.PWM(ml_en,1000)
         self.pwm_l.start(40)
-        self.pwm_r.start(30)
+        self.pwm_r.start(40)
 
 
 

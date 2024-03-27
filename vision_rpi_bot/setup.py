@@ -28,6 +28,7 @@ setup(
                 'cmdVel_to_pwm_node = vision_rpi_bot.cmd_to_pwm_driver:main',
                 'image_publisher = vision_rpi_bot.image_publisher:main',
                 'line_follow_drive_node = vision_rpi_bot.line_follow_drive:main',
+                'video_publisher = vision_rpi_bot.video_publisher:main',
 
                            ],
                 },
